@@ -88,30 +88,5 @@ db.accounts.find()
 
 
 
-### How does the MongoDB transaction work?
 
-1. `startSession()` creates a session.
-2. `withTransaction()` starts a transaction.
-3. `updateOne()` debits the sender.
-4. Another `updateOne()` credits the receiver.
-5. If both operations succeed, MongoDB commits the transaction.
-6. If an operation fails, MongoDB aborts the transaction.
-
-**Important:** MongoDB multi-document transactions require a replica set or sharded cluster. They won't work on a standalone MongoDB server.
-
----
-
-## Part D – Cost of MongoDB transactions
-
-**Question:** State the cost of using MongoDB multi-document transactions.
-
-<WritingBlock id="63114" variant="document">### Cost of MongoDB Multi-Document Transactions
-
-MongoDB multi-document transactions provide atomicity, but they introduce additional overhead.
-
-1. **Performance:** Transactions may take more time because multiple operations must be coordinated.
-2. **Memory and resources:** Maintaining transaction information requires additional database resources.
-3. **Concurrency:** Simultaneous transactions may cause write conflicts and retries.
-4. **Storage:** MongoDB maintains data versions and transaction information to support consistency and durability.
-5. **Complexity:** Developers must handle transaction failures, retries and timeouts.
 
