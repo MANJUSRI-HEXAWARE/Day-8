@@ -1,4 +1,3 @@
-# transaction.js
 
 ```javascript
 const { MongoClient } = require("mongodb");
@@ -80,28 +79,14 @@ async function transferMoney() {
 transferMoney();
 ```
 
-Replace `YOUR_MONGODB_CONNECTION_STRING` with your actual connection string.
-
-Run the file:
-
-```bash
-node transaction.js
-```
-
 ### Step 3: Verify the balances
 
-In `mongosh`, execute:
 
 ```javascript
 db.accounts.find()
 ```
 
-Expected result after a successful transfer:
 
-| Account | Previous balance | New balance |
-|---|---:|---:|
-| Arun (101) | ₹50,000 | ₹45,000 |
-| Priya (102) | ₹30,000 | ₹35,000 |
 
 ### How does the MongoDB transaction work?
 
@@ -120,8 +105,6 @@ Expected result after a successful transfer:
 
 **Question:** State the cost of using MongoDB multi-document transactions.
 
-Write this explanation in your assignment:
-
 <WritingBlock id="63114" variant="document">### Cost of MongoDB Multi-Document Transactions
 
 MongoDB multi-document transactions provide atomicity, but they introduce additional overhead.
@@ -132,6 +115,3 @@ MongoDB multi-document transactions provide atomicity, but they introduce additi
 4. **Storage:** MongoDB maintains data versions and transaction information to support consistency and durability.
 5. **Complexity:** Developers must handle transaction failures, retries and timeouts.
 
-**Conclusion:**
-
-Multi-document transactions are useful when multiple documents must be updated together, such as bank funds transfers. However, they should be kept short and used only when necessary because they introduce additional performance and resource overhead.
